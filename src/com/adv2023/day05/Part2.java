@@ -39,7 +39,7 @@ public class Part2 {
             String line;
 
             String s = "seeds";
-            long[] seeds = null;
+            long[] seeds;
             List<Interval> intervals = new ArrayList<>();
             List<MappingObject> seedSoil = new ArrayList<>();
             List<MappingObject> soilFert = new ArrayList<>();
@@ -50,8 +50,7 @@ public class Part2 {
             List<MappingObject> humiLoca = new ArrayList<>();
 
             while ((line = br.readLine()) != null) {
-                if (line.isEmpty()) {
-                } else {
+                if (!line.isEmpty()) {
                     if (Character.isDigit(line.charAt(0))) {
                         switch (s) {
                             case "seeds": {
@@ -123,7 +122,7 @@ public class Part2 {
             System.out.println(locas);
             long minLoc = Long.MAX_VALUE;
             for (Interval interv : locas) {
-                if (interv.getLowerLimit()<minLoc) {
+                if (interv.getLowerLimit() < minLoc) {
                     minLoc = interv.getLowerLimit();
                 }
             }
@@ -166,7 +165,7 @@ public class Part2 {
                     break;
                 } else if (interv.getUpperLimit() <= mo.endNum && interv.getUpperLimit() >= mo.startNum) {
                     System.out.println("dolejsek ufiknout");
-                    Interval iNew = new Interval (interv.getLowerLimit(), mo.startNum-1);
+                    Interval iNew = new Interval(interv.getLowerLimit(), mo.startNum - 1);
                     iter.add(iNew);
                     iter.previous();
                     interv.setLowerLimit(mo.startNum);
@@ -181,6 +180,6 @@ public class Part2 {
                 System.out.println("bez konverze");
             }
         }
-    return outputIntervals;
+        return outputIntervals;
     }
 }

@@ -27,14 +27,6 @@ public class Interval {
         this.upperLimit = upperLimit;
     }
 
-//    public boolean containsNum(long number) {
-//        return number >= this.lowerLimit && number <= this.upperLimit;
-//    }
-
-//    public boolean containsInterval(Interval i) {
-//        return this.lowerLimit <= i.getLowerLimit() && this.upperLimit >= i.getUpperLimit();
-//    }
-
     @Override
     public java.lang.String toString() {
         return String.format("%,d", lowerLimit) + " - " + String.format("%,d", upperLimit);
